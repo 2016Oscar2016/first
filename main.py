@@ -1,3 +1,5 @@
+print("AMOGUS")
+
 import turtle
 BODY_COLOR = "red"
 GLASS_COLOR = "skyblue"
