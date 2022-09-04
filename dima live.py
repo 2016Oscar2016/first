@@ -26,7 +26,7 @@ class Student:
 
     def working(self):
         print("working")
-        self.money +=5
+        self.money +=6
 
     def is_alive(self):
         if self.progress < -0.05:
