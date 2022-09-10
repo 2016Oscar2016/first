@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="286e6593-ae69-4829-8e92-629143db83b9" name="Changes" comment="Bug fix">
-      <change afterPath="$PROJECT_DIR$/dz.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dima live.py" beforeDir="false" afterPath="$PROJECT_DIR$/dima live.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +59,21 @@
       <option name="project" value="LOCAL" />
       <updated>1662282928235</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Bug fix">
+      <created>1662314838674</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1662314838674</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Bug fix">
+      <created>1662314857745</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1662314857745</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
