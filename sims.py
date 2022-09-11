@@ -1,5 +1,5 @@
 import random
-
+cube = 0
 
 class Human:
     def __init__(self, name="Human", job=None, home=None, car=None):
@@ -19,27 +19,27 @@ class Human:
 
     def get_job(self):
         if self.car.drive():
-            pass
+            self.car.strength -= 10
         else:
             self.repair()
             return
-        self.job = Job(job_list)
+        self.job = Job()
 
     def eat(self):
-        if self.home.food <=0:
-            self.shopping()
+        if self.home.food <= 0:
+            self.shopping("food")
         else:
             if self.satiety >= 100:
                 self.satiety = 100
                 return
-        self.satiety +5
-        self.home.food -=3
+            self.satiety += 5
+            self.home.food -= 3
 
     def work(self):
         if self.car.drive():
-            pass
+            self.car.strength -= 10
         else:
-            if self.car.fuel <20:
+            if self.car.fuel < 20:
                 self.shopping("fuel")
                 return
             else:
@@ -51,9 +51,9 @@ class Human:
 
     def shopping(self, manage):
         if self.car.drive():
-            pass
+            self.car.strength -= 10
         else:
-            if self.car.fuel <20:
+            if self.car.fuel < 20:
                 self.shopping("fuel")
                 return
             else:
@@ -61,17 +61,17 @@ class Human:
                 return
         if manage == "fuel":
             print("Fuel bought")
-            self.money -=100
+            self.money -= 100
             self.car.fuel += 100
         elif manage == "food":
             print("Food bought")
-            self.money -=25
+            self.money -= 25
             self.home.food += 50
         elif manage == "dedicates":
             print("YooHoo!! DELICIOUS!!!")
             self.gladness += 10
             self.satiety += 2
-            self.money -=75
+            self.money -= 75
 
     def chill(self):
         self.gladness += 10
@@ -90,33 +90,75 @@ class Human:
         self.gladness += 10
 
     def days(self, day):
-        day = f"today the {day} of {self.name}'s life"
-        print(f"{day: =^10}", "\n")
+        day = f"Today the {day} of {self.name}'s life"
+        print(f"{day:=^50}", "\n")
         human_indexes = self.name + "'s indexes"
         print(f"{human_indexes:=^50}", "\n")
-        print(f"Money: {self.money}")
-        print(f"Satiety: {self.satiety}")
-        print(f"Gladness: {self.gladness}")
+        print(f"Money - {self.money}")
+        print(f"Satiety - {self.satiety}")
+        print(f"Gladness - {self.gladness}")
         home_indexes = "Home indexes"
         print(f"{home_indexes:=^50}", "\n")
-        print(f"Food: {self.home.food}")
-        print(f"Mess: {self.home.mess}")
-        car_indexes = f"{self.car.brand}'s car indexes"
+        print(f"Food = {self.home.food}")
+        print(f"Mess = {self.home.mess}")
+        car_indexes = f"{self.car.brand} car indexes"
         print(f"{car_indexes:=^50}", "\n")
-        print(f"Fuel: {self.car.fuel}")
-        print(f"Strength: {self.car.strength}")
+        print(f"Fuel - {self.car.fuel}")
+        print(f"Strength - {self.car.strength}")
 
     def is_alive(self):
         if self.gladness < 0:
             print("Dead inside")
         if self.satiety < 0:
             print(" R.I.P")
-        if self.money <= 100:
+        if self.money <= 50:
             print("Bankrot")
             return
 
     def live(self):
-        pass
+        cube == random.randint(1, 4)
+        if self.is_alive() == False:
+            return False
+        if self.home is None:
+            print("Settled down in the house")
+            self.get_home()
+        if self.car is None:
+            self.get_car()
+            print(f"I bought a car! {self.car.brand}")
+        if self.job is None:
+            self.get_job()
+            print(f"I don't have a job. I must get a job! {self.job.job} With salary: {self.job.salary}")
+        if self.satiety < 20:
+            print("Im gonna eat")
+            self.eat()
+        elif self.gladness < 20:
+            if self.home.mess > 15:
+                print("I wanna chill, but there is so much mess \n So I will clean the house")
+                self.clean()
+            else:
+                print("Let's chill!")
+                self.chill()
+        elif self.money < 100:
+            print("Start working...")
+            self.work()
+        elif self.home.food <= 0:
+            print("I'm very hungry!!!")
+            self.shopping("food")
+        elif self.car.strength < 100:
+            print("I need to repair my car")
+            self.repair()
+        elif cube == 1:
+            print("Let's chill!")
+            self.chill()
+        elif cube == 2:
+            print("Statrt working...")
+            self.work()
+        elif cube == 3:
+            print("Cleaning time!")
+            self.clean()
+        elif cube == 4:
+            print("Time for shopping!!!")
+            self.shopping()
 
 class Auto:
     def __init__(self, brand_list):
@@ -126,13 +168,14 @@ class Auto:
         self.strength = brand_list[self.brand]["strength"]
 
     def drive(self):
-        if self.horse_power > 0 and self.fuel >= self.consumption:
+        if self.strength > 0 and self.fuel >= self.consumption:
             self.fuel -= self.consumption
             self.consumption -= 1
             return True
         else:
             print("The car can't move")
             return False
+
 
 class House:
     def __init__(self):
@@ -154,8 +197,16 @@ brands_of_car = {
     "Ferrari": {"fuel": 80, "strength": 200, "consumption": 10}
 }
 
+
 class Job:
     def __init__(self):
         self.job = random.choice(list(job_list))
         self.salary = job_list[self.job]["salary"]
         self.gladness_less = job_list[self.job]["gladness_less"]
+
+andriy = Human("Andriy")
+
+for day in range(1001):
+        andriy.live()
+        andriy.is_alive()
+        andriy.days(day)
