@@ -1,5 +1,6 @@
 import random
 cube = 0
+dayr = 1
 
 class Human:
     def __init__(self, name="Human", job=None, home=None, car=None):
@@ -117,6 +118,7 @@ class Human:
 
     def live(self):
         cube == random.randint(1, 4)
+
         if self.is_alive() == False:
             return False
         if self.home is None:
