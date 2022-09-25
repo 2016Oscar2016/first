@@ -1,5 +1,5 @@
 import random
-
+import logging
 
 class Human:
     def __init__(self, name="Human", money = 100, gladness = 50, job=None, home=None, car=None, self_mood = random.randint(0,100),man = None, wife = None, state = False, country = None):
@@ -300,6 +300,7 @@ class Job:
         self.salary = job_list[self.job]["salary"]
         self.gladness_less = job_list[self.job]["gladness_less"]
 
+
 list_of_jobs = {
     "It developer": {"salary": 100, "gladness_less": 15},
     "Car driver": {"salary": 50, "gladness_less": 10},
@@ -324,4 +325,8 @@ brands_of_car = {
 andriy = Human(name="Andriy", money=1000)
 
 while andriy.live():
-    pass
+    logging.debug('debug...')
+    logging.info('Crash... Ooops')
+    logging.warning('Warning!')
+    logging.error('Error404!')
+    logging.critical('Critical Error!')
