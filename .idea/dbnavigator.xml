@@ -42,9 +42,7 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="a120890c-732e-4a36-ab9c-2bee3b0ef3cf" object-ref="schemas/main/tables/temperature" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="c5562545-4c4d-45dc-96fe-b4d556707857" />
@@ -53,7 +51,15 @@
     <connection id="6204f9cb-0380-4267-9ca0-a75af633a43f" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="a120890c-732e-4a36-ab9c-2bee3b0ef3cf" dataset="main.te" active-filter-id="">
+    <filter-actions connection-id="a120890c-732e-4a36-ab9c-2bee3b0ef3cf" dataset="main.Temp_Date" active-filter-id="EMPTY_FILTER">
+      <filter id="d31fd4e8-409a-453a-8757-73cd260f11b8" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="Date" operator="=" value="" active="true" />
+      </filter>
+      <filter id="ca3508c4-41ac-4a9b-8d1f-08f6e4e64aa8" name="Filter 2" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="Temperature" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="a120890c-732e-4a36-ab9c-2bee3b0ef3cf" dataset="main.te" active-filter-id="EMPTY_FILTER">
       <filter id="a4e04458-5b94-44b0-bed3-a5b906ca642b" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="Temperature" operator="=" value="" active="true" />
       </filter>
@@ -63,9 +69,19 @@
         <condition column="Temperature" operator="=" value="" active="true" />
       </filter>
     </filter-actions>
+    <filter-actions connection-id="a120890c-732e-4a36-ab9c-2bee3b0ef3cf" dataset="main.Temp_Date_2" active-filter-id="EMPTY_FILTER">
+      <filter id="7f223583-4ed2-4503-9043-e42dd169f046" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="Date" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
     <filter-actions connection-id="a120890c-732e-4a36-ab9c-2bee3b0ef3cf" dataset="main.first_table" active-filter-id="EMPTY_FILTER">
       <filter id="a5cb8714-73c6-4700-9b0a-cafc876ce717" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="name" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="a120890c-732e-4a36-ab9c-2bee3b0ef3cf" dataset="main.Temp_Date_3" active-filter-id="EMPTY_FILTER">
+      <filter id="5630f16d-874d-4891-b050-fbf19bb3ee2b" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="Id" operator="=" value="" active="true" />
       </filter>
     </filter-actions>
   </component>
@@ -773,7 +789,7 @@
       <transactions>
         <uncommitted-changes>
           <on-project-close value="ASK" />
-          <on-disconnect value="ASK" />
+          <on-disconnect value="REVIEW_CHANGES" />
           <on-autocommit-toggle value="ASK" />
         </uncommitted-changes>
         <multiple-uncommitted-changes>
